@@ -116,7 +116,7 @@ events.on('updateCard', (event, board) => {
     } else if (event.data.old.hasOwnProperty("idList")) {
         if (!eventEnabled(`cardListChanged`)) return
         embed
-            .setTitle(`La position de la carte a changée!`)
+            .setTitle(`La position de la carte a changé !`)
             .setDescription(`**${event.data.card.name}** — **[LIEN](https://trello.com/c/${event.data.card.shortLink})**\n\n Carte déplacée vers la liste **${event.data.listAfter.name}** de la liste **${event.data.listBefore.name}** par **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
         send(addDiscordUserData(embed, event.memberCreator))
     } else if (event.data.old.hasOwnProperty("name")) {
