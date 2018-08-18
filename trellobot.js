@@ -104,8 +104,8 @@ events.on('updateCard', (event, board) => {
     } else if (event.data.old.hasOwnProperty("due")) {
         if (!eventEnabled(`cardDueDateChanged`)) return
         embed
-            .setTitle(`Card due date changed!`)
-            .setDescription(`**CARD:** ${event.data.card.name} — **[CARD LINK](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Card due date changed to __${event.data.card.due ? new Date(event.data.card.due).toUTCString() : `[No due date]`}__ from __${event.data.old.due ? new Date(event.data.old.due).toUTCString() : `[No due date]`}__ by **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
+            .setTitle(`La deadline de la carte a changé !`)
+            .setDescription(`${event.data.card.name} — **[LIEN](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Date changée à __${event.data.card.due ? new Date(event.data.card.due).toUTCString() : `[No due date]`}__ de __${event.data.old.due ? new Date(event.data.old.due).toUTCString() : `[No due date]`}__ par **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
         send(addDiscordUserData(embed, event.memberCreator))
     } else if (event.data.old.hasOwnProperty("pos")) {
         if (!eventEnabled(`cardPositionChanged`)) return
@@ -167,8 +167,8 @@ events.on('commentCard', (event, board) => {
     } else {
         if (!eventEnabled(`commentAdded`)) return
         embed
-            .setTitle(`Comment added to card!`)
-            .setDescription(`**CARD:** ${event.data.card.name} — **[CARD LINK](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Card comment added (see below for comment text) by **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
+            .setTitle(`Un commentaire à été ajouté !`)
+            .setDescription(`${event.data.card.name} — **[LIEN](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Commentaire ajouté par **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
             .addField(`Comment Text`, event.data.text.length > 1024 ? `${event.data.text.trim().slice(0, 1020)}...` : event.data.text)
         send(addDiscordUserData(embed, event.memberCreator))
     }
@@ -273,8 +273,8 @@ events.on('deleteAttachmentFromCard', (event, board) => {
 events.on('addChecklistToCard', (event, board) => {
     if (!eventEnabled(`checklistAddedToCard`)) return
     let embed = getEmbedBase(event)
-        .setTitle(`Checklist added to card!`)
-        .setDescription(`**CARD:** ${event.data.card.name} — **[CARD LINK](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Checklist named \`${event.data.checklist.name}\` added to card by **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
+        .setTitle(`Des objectifs ont été ajouté à une carte !`)
+        .setDescription(`${event.data.card.name} — **[LIEN](https://trello.com/c/${event.data.card.shortLink})**\n\n**EVENT:** Checklist named \`${event.data.checklist.name}\` added to card by **[${conf.realNames ? event.memberCreator.fullName : event.memberCreator.username}](https://trello.com/${event.memberCreator.username})**`)
     send(addDiscordUserData(embed, event.memberCreator))
 })
 
