@@ -117,7 +117,7 @@ events.on('updateCard', (event, board) => {
         if (!eventEnabled(`cardListChanged`)) return
         embed
             .setTitle(`Attention @everyone !`)
-            .setDescription(`La deadline de la carte **${event.data.card.name}** est pour bientôt !)
+            .setDescription(`La deadline de la carte **${event.data.card.name}** est pour bientôt !`)
         send(addDiscordUserData(embed, event.memberCreator))
     } else if (event.data.old.hasOwnProperty("name")) {
         if (!eventEnabled(`cardNameChanged`)) return
