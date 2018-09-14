@@ -117,7 +117,7 @@ events.on('updateCard', (event, board) => {
         if (!eventEnabled(`cardListChanged`)) return
         embed
             .setTitle(`Attention @everyone !`)
-            .setDescription(`La deadline de la carte **${event.data.card.name}** — **[LIEN](https://trello.com/c/${event.data.card.shortLink})**\n\n s'approche à grand pas !)
+            .setDescription(`La deadline de la carte **${event.data.card.name}** est pour bientôt !)
         send(addDiscordUserData(embed, event.memberCreator))
     } else if (event.data.old.hasOwnProperty("name")) {
         if (!eventEnabled(`cardNameChanged`)) return
